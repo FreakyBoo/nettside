@@ -1,0 +1,94 @@
+/* Generelle stiler for hele nettsiden */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ede9e9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Stiler for skjemaer */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #2850a7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Stiler for lenker */
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Handlekurv-seksjon */
+.handlekurv {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Produktliste */
+.produkt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+/*Bilde justering*/
+.bilde-container {
+    display: flex; /* Plasser bildene i en horisontal rekke */
+    justify-content: center; /* Sentrer bildene horisontalt */
+    align-items: center; /* Sentrer bildene vertikalt */
+    gap: 10px; /* Avstand mellom bildene */
+}
+
+.bilde-container img {
+    width: 200px; 
+    height: 200px; 
+}
