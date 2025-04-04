@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $host = "localhost";
     $user = "julian";
     $pass = "Julian2007!";
-    $db = "nettbutikk";
+    $db = "klesbutikk";
     
     $conn = new mysqli($host, $user, $pass, $db);
 

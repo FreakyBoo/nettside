@@ -23,13 +23,13 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
     $totalpris = 0; //Lager en variabel $totalpris som starter på 0.
 
     if (isset($_SESSION['handlekurv'])) { //Sjekker om handlekurven eksisterer.
-        $conn = new mysqli("localhost", "julian", "Julian2007!", "nettbutikk"); //Lager en tilkobling til MySQL-databasen ($conn).
+        $conn = new mysqli("localhost", "julian", "Julian2007!", "nettbutikk"); 
         foreach ($_SESSION['handlekurv'] as $produkt_id) { //Henter hvert produkt_id som er lagret i handlekurven "("$_SESSION['handlekurv"]. Foreach går gjennom hvert element i arrayen (som er [handlekurv]).
             // Hent produktinformasjon fra databasen
             $sql = "SELECT * FROM produkter WHERE produkt_id = '$produkt_id'";
             $result = $conn->query($sql); // Kjører $sql spørringen mot databasen og lagrer resultatet i $result
 
-            if ($result && $result->num_rows > 0) { //sjekker om det finnes rader i $result (altså om spørringen mot databasen fant produkter). && betyr "og", så begge betingelsene må være true for at if-blokken skal kjøre.
+            if ($result && $result->num_rows > 0) { //sjekker om det finnes rader i $result.
                 $produkt = $result->fetch_assoc(); // Lager en assosiativ liste
                 $produkter[] = $produkt['navn']; // Legg til produktnavn
                 $totalpris += $produkt['pris'];  // Legg til pris i totalpris

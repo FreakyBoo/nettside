@@ -1,12 +1,12 @@
 <?php
 session_start(); // Start en sesjon for å huske brukeren
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Sjekker om forespørselen er gjort med POST-metoden
     // Koble til databasen
     $host = "localhost";
     $user = "julian";
     $pass = "Julian2007!"; 
-    $db = "nettbutikk";
+    $db = "klesbutikk";
     
     $conn = new mysqli($host, $user, $pass, $db);
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "SELECT * FROM kunder WHERE epost = '$epost'";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows > 0) { // Sjekker om resultatet inneholder én eller flere rader
         // Bruker finnes, sjekk passordet
         $row = $result->fetch_assoc();
         if (password_verify($passord, $row['passord'])) {
