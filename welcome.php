@@ -18,8 +18,8 @@ if (!isset($_SESSION['kunde_id'])) {
 <body>
     <h1>Velkommen, <?php echo $_SESSION['fornavn']; ?>!</h1>
     <p>Du er nå logget inn på nettbutikken.</p>
-    <a href="order.php">Bestill produkter</a>
-    --<a href="index.php">Logg ut</a>
+    <a href="order.php"  tabindex="1">Bestill produkter</a>
+    --<a href="index.php"  tabindex="2">Logg ut</a>
 
     
 

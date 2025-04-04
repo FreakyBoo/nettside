@@ -111,7 +111,7 @@ if (isset($_POST['complete_order'])) { // Sjekker om brukeren har trykket på "f
         ?>
             <div>
                 <span><?php echo $row['produkt_navn']; ?> - <?php echo $row['produkt_pris']; ?> kr</span>
-                <button type="submit" name="add_product" value="<?php echo $row['produkt_id']; ?>">Legg til</button> 
+                <button type="submit" name="add_product" value="<?php echo $row['produkt_id']; ?>"  tabindex="1">Legg til</button> 
             </div>
         <?php
             endwhile;
@@ -121,7 +121,7 @@ if (isset($_POST['complete_order'])) { // Sjekker om brukeren har trykket på "f
         ?>
 
         <!-- Fullfør bestilling-knapp -->
-        <button type="submit" name="complete_order">Fullfør bestilling</button>
+        <button type="submit" name="complete_order"  tabindex="2">Fullfør bestilling</button>
     </form>
 
     <div class="bilde-container">

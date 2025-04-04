@@ -55,14 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <h1>Registrer deg</h1>
     <form action="registrer.php" method="POST">
-        <input type="text" name="fornavn" placeholder="Fornavn" required>
-        <input type="text" name="etternavn" placeholder="Etternavn" required>
-        <input type="email" name="epost" placeholder="Epost" required>
-        <input type="password" name="passord" placeholder="Passord" required>
-        <input type="text" name="telefon" placeholder="Telefon" required>
-        <textarea name="adresse" placeholder="Adresse" required></textarea>
-        <input type="date" name="fodselsdato" required>
-        <button type="submit">Registrer</button>
+        <input type="text" name="fornavn" placeholder="Fornavn" required  tabindex="1">
+        <input type="text" name="etternavn" placeholder="Etternavn" required  tabindex="2">
+        <input type="email" name="epost" placeholder="Epost" required  tabindex="3">
+        <input type="password" name="passord" placeholder="Passord" required  tabindex="4">
+        <input type="text" name="telefon" placeholder="Telefon" required  tabindex="5">
+        <textarea name="adresse" placeholder="Adresse" required  tabindex="6"></textarea>
+        <input type="date" name="fodselsdato" required  tabindex="7">
+        <button type="submit"  tabindex="8">Registrer</button>
     </form>
 </body>
 </html>

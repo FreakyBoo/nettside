@@ -53,9 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Sjekker om forespørselen er gjor
 <body>
     <h1>Logg inn</h1>
     <form action="login.php" method="POST">
-        <input type="email" name="epost" placeholder="Epost" required>
-        <input type="password" name="passord" placeholder="passord" required>
-        <button type="submit">Logg inn</button>
+        <input type="email" name="epost" placeholder="Epost" required  tabindex="1">
+        <input type="password" name="passord" placeholder="passord" required  tabindex="2">
+        <button type="submit"  tabindex="3">Logg inn</button>
     </form>
 </body>
 </html>
