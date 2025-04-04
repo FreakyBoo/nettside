@@ -80,14 +80,28 @@ a:hover {
     margin-bottom: 10px;
 }
 
-/*Bilde justering*/
-.bilde-container {
-    display: flex; /* Plasser bildene i en horisontal rekke */
-    justify-content: center; /* Sentrer bildene horisontalt */
-    align-items: center; /* Sentrer bildene vertikalt */
-    gap: 10px; /* Avstand mellom bildene */
-    width: 200px; 
-    height: 200px; 
+button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 15px;
+    background-color: #2ecc71;
 }
 
+button[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+/* Bilder */
+.bilde-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.bilde-container img {
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
