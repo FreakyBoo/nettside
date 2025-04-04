@@ -23,7 +23,7 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
     $totalpris = 0; //Lager en variabel $totalpris som starter på 0.
 
     if (isset($_SESSION['handlekurv'])) { //Sjekker om handlekurven eksisterer.
-        $conn = new mysqli("localhost", "julian", "Julian2007!", "nettbutikk"); 
+        $conn = new mysqli("localhost", "julian", "Julian2007!", "klesbutikk"); 
         foreach ($_SESSION['handlekurv'] as $produkt_id) { //Henter hvert produkt_id som er lagret i handlekurven "("$_SESSION['handlekurv"]. Foreach går gjennom hvert element i arrayen (som er [handlekurv]).
             // Hent produktinformasjon fra databasen
             $sql = "SELECT * FROM produkter WHERE produkt_id = '$produkt_id'";
@@ -31,8 +31,8 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
 
             if ($result && $result->num_rows > 0) { //sjekker om det finnes rader i $result.
                 $produkt = $result->fetch_assoc(); // Lager en assosiativ liste
-                $produkter[] = $produkt['navn']; // Legg til produktnavn
-                $totalpris += $produkt['pris'];  // Legg til pris i totalpris
+                $produkter[] = $produkt['produkt_navn']; // Legg til produktnavn
+                $totalpris += $produkt['produkt_pris'];  // Legg til pris i totalpris
             }
         }
         $conn->close();
@@ -43,7 +43,7 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
         $produkter_liste = implode(", ", $produkter); // Lager en kommaseparert liste av produkter
 
         // Koble til databasen og legg inn bestillingen
-        $conn = new mysqli("localhost", "julian", "Julian2007!", "nettbutikk");
+        $conn = new mysqli("localhost", "julian", "Julian2007!", "klesbutikk");
         if ($conn->connect_error) {
             die("Tilkoblingsfeil: " . $conn->connect_error);
         }
@@ -57,7 +57,7 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
             foreach ($_SESSION['handlekurv'] as $produkt_id) { //Henter hvert produkt_id som er lagret i handlekurven "("$_SESSION['handlekurv"
                 // Legg til bestillingsdetaljer i databasen
                 $sql = "INSERT INTO bestillingsdetaljer (bestilling_id, produkt_id, antall, pris) 
-                        VALUES ('$bestilling_id', '$produkt_id', 1, (SELECT pris FROM produkter WHERE produkt_id = '$produkt_id'))";
+                        VALUES ('$bestilling_id', '$produkt_id', 1, (SELECT produkt_pris FROM produkter WHERE produkt_id = '$produkt_id'))";
                 $conn->query($sql);
             }
 
@@ -89,7 +89,7 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
         <h2>Velg produkter:</h2>
         <?php
     // Opprett en tilkobling til MySQL-databasen
-    $conn = new mysqli("localhost", "julian", "Julian2007!", "nettbutikk");
+    $conn = new mysqli("localhost", "julian", "Julian2007!", "klesbutikk");
 
     // Sjekk om tilkoblingen var vellykket
     if ($conn->connect_error) {
@@ -110,7 +110,7 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
     ?>
 
                 <div>
-                    <span><?php echo $row['navn']; ?> - <?php echo $row['pris']; ?> kr</span>
+                    <span><?php echo $row['produkt_navn']; ?> - <?php echo $row['produkt_pris']; ?> kr</span>
                     <button type="submit" name="add_product" value="<?php echo $row['produkt_id']; ?>">Legg til</button> 
                 </div>
         <?php
@@ -123,6 +123,12 @@ if (isset($_POST['complete_order'])) { //sjekker om brukeren har trykket på "fu
         <!-- Fullfør bestilling-knapp -->
         <button type="submit" name="complete_order">Fullfør bestilling</button>
     </form>
+
+    <div class="bilde-container">
+        <img  src="https://image.hm.com/assets/005/4b/70/4b7017ae3644e3006cb5f66481a2cacd18a6b713.jpg?imwidth=1536">
+        <img  src="https://image.hm.com/assets/005/f4/83/f483e610eac0f767958acc4b21ee70bc5c9002f4.jpg?imwidth=1536">
+        <img  src="https://image.hm.com/assets/hm/1c/5f/1c5f64c102fc86b0fb9bd4c37a3b5bf247cea2cf.jpg?imwidth=1536">
+    </div>
 
 </body>
 </html>

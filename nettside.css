@@ -86,9 +86,8 @@ a:hover {
     justify-content: center; /* Sentrer bildene horisontalt */
     align-items: center; /* Sentrer bildene vertikalt */
     gap: 10px; /* Avstand mellom bildene */
-}
-
-.bilde-container img {
     width: 200px; 
     height: 200px; 
 }
+
+
